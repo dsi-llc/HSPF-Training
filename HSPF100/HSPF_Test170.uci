@@ -1,0 +1,84 @@
+RUN
+
+GLOBAL
+  A basic UCI file with one IMPLND and one input data file
+  START       2018/01/01 00:00  END    2018/01/31 24:00
+  RUN INTERP OUTPT LEVELS    4    0
+  RESUME     0 RUN     1                          UNITS    1
+END GLOBAL
+
+FILES
+<FILE>  <UN#>***<----FILE NAME------------------------------------------------->
+WDM1        1   HSPF_Test.wdm
+MESSU      25   Test.ech
+           26   HSPF_Test170.out
+BINO       27   HSPF_Test170.hbn
+END FILES
+
+OPN SEQUENCE
+    INGRP              INDELT 00:15
+      IMPLND       1
+    END INGRP
+END OPN SEQUENCE
+
+IMPLND
+  ACTIVITY
+*** <ILS >               Active Sections
+*** x -  x ATMP SNOW IWAT  SLD  IWG IQAL
+    1         0    0    1    0    0    0
+  END ACTIVITY
+
+  PRINT-INFO
+*** <ILS > ******** Print-flags ******** PIVL  PYR
+*** x -  x ATMP SNOW IWAT  SLD  IWG IQAL *********
+    1         4    4    3    4    4    4    1    9
+  END PRINT-INFO
+
+  BINARY-INFO
+*** <ILS > **** Binary-Output-flags **** PIVL  PYR
+*** x -  x ATMP SNOW IWAT  SLD  IWG IQAL *********
+    1         4    4    3    4    4    4    1    9
+  END BINARY-INFO
+
+
+  GEN-INFO
+***             Name             Unit-systems   Printer BinaryOut
+*** <ILS >                           t-series Engl Metr Engl Metr
+*** x -  x                            in  out
+    1     ImperviousLand               1    1    0   26   27    0
+  END GEN-INFO
+
+  IWAT-PARM1
+*** <ILS >        Flags
+*** x -  x CSNO RTOP  VRS  VNN RTLI
+    1         0    0    0    0    0
+  END IWAT-PARM1
+
+  IWAT-PARM2
+*** <ILS >      LSUR     SLSUR      NSUR     RETSC
+*** x -  x      (ft)                          (in)
+    1            100      0.02      0.05      0.15
+  END IWAT-PARM2
+
+  IWAT-STATE1
+*** <ILS >  IWATER state variables (inches)
+*** x -  x      RETS      SURS
+    1           0.01      0.01
+  END IWAT-STATE1
+
+END IMPLND
+
+EXT SOURCES
+<-Volume-> <Member> SsysSgap<--Mult-->Tran <-Target vols> <-Grp> <-Member-> ***
+<Name>   x <Name> x tem strg<-factor->strg <Name>   x   x        <Name> x x ***
+WDM1     1 PREC     ENGLZERO               IMPLND   1     EXTNL  PREC  
+WDM1     2 HPET     ENGL                   IMPLND   1     EXTNL  PETINP
+END EXT SOURCES
+
+EXT TARGETS
+<-Volume-> <-Grp> <-Member-><--Mult-->Tran <-Volume-> <Member> Tsys Aggr Amd ***
+<Name>   x        <Name> x x<-factor->strg <Name>   x <Name>qf  tem strg strg***
+IMPLND   1 IWATER SURO   1 1               WDM1  9900 SURO   1 METR AGGR REPL
+END EXT TARGETS
+
+END RUN
