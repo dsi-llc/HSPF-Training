@@ -11,8 +11,8 @@ FILES
 <FILE>  <UN#>***<----FILE NAME------------------------------------------------->
 WDM1        1   HSPF_Test.wdm
 MESSU      25   HSPF_Test.ech
-           26   HSPF_Test.out
-BINO       27   HSPF_Test.hbn
+           27   HSPF_Test.out
+BINO       48   HSPF_Test.hbn
 END FILES
 
 OPN SEQUENCE
@@ -45,7 +45,7 @@ IMPLND
 ***             Name             Unit-systems   Printer BinaryOut
 *** <ILS >                           t-series Engl Metr Engl Metr
 *** x -  x                            in  out
-    1     ImperviousLand               1    1    0   26   27    0
+    1     ImperviousLand               1    1    0   27   48    0
   END GEN-INFO
 
   IWAT-PARM1

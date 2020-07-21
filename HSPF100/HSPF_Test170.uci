@@ -10,7 +10,7 @@ END GLOBAL
 FILES
 <FILE>  <UN#>***<----FILE NAME------------------------------------------------->
 WDM1        1   HSPF_Test.wdm
-MESSU      25   Test.ech
+MESSU      25   HSPF_Test.ech
            26   HSPF_Test170.out
 BINO       27   HSPF_Test170.hbn
 END FILES
@@ -78,7 +78,7 @@ END EXT SOURCES
 EXT TARGETS
 <-Volume-> <-Grp> <-Member-><--Mult-->Tran <-Volume-> <Member> Tsys Aggr Amd ***
 <Name>   x        <Name> x x<-factor->strg <Name>   x <Name>qf  tem strg strg***
-IMPLND   1 IWATER SURO   1 1               WDM1  9900 SURO   1 METR AGGR REPL
+IMPLND   1 IWATER SURO   1 1               WDM1  9000 ISURO  1 METR      REPL
 END EXT TARGETS
 
 END RUN
