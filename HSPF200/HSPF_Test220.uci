@@ -1,0 +1,169 @@
+RUN
+
+GLOBAL
+  A basic UCI file with one IMPLND and one input data file
+  START       2018/01/01 00:00  END    2018/01/31 24:00
+  RUN INTERP OUTPT LEVELS    8    0
+  RESUME     0 RUN     1                          UNITS    1
+END GLOBAL
+
+FILES
+<FILE>  <UN#>***<----FILE NAME------------------------------------------------->
+WDM1        1   HSPF_Test.wdm
+MESSU      25   HSPF_Test.ech
+           26   HSPF_Test220.out
+BINO       27   HSPF_Test220.hbn
+END FILES
+
+OPN SEQUENCE
+    INGRP              INDELT 01:00
+      IMPLND       1
+      RCHRES       1
+    END INGRP
+END OPN SEQUENCE
+
+IMPLND
+  ACTIVITY
+*** <ILS >               Active Sections
+*** x -  x ATMP SNOW IWAT  SLD  IWG IQAL
+    1         0    0    1    0    0    0
+  END ACTIVITY
+
+  PRINT-INFO
+*** <ILS > ******** Print-flags ******** PIVL  PYR
+*** x -  x ATMP SNOW IWAT  SLD  IWG IQAL *********
+    1         4    4    3    4    4    4    1    9
+  END PRINT-INFO
+
+  BINARY-INFO
+*** <ILS > **** Binary-Output-flags **** PIVL  PYR
+*** x -  x ATMP SNOW IWAT  SLD  IWG IQAL *********
+    1         4    4    3    4    4    4    1    9
+  END BINARY-INFO
+
+
+  GEN-INFO
+***             Name             Unit-systems   Printer BinaryOut
+*** <ILS >                           t-series Engl Metr Engl Metr
+*** x -  x                            in  out
+    1     ImperviousLand               1    1    0   26   27    0
+  END GEN-INFO
+
+  IWAT-PARM1
+*** <ILS >        Flags
+*** x -  x CSNO RTOP  VRS  VNN RTLI
+    1         0    0    0    0    0
+  END IWAT-PARM1
+
+  IWAT-PARM2
+*** <ILS >      LSUR     SLSUR      NSUR     RETSC
+*** x -  x      (ft)                          (in)
+    1            100      0.02      0.05      0.15
+  END IWAT-PARM2
+
+
+  IWAT-PARM3
+*** <ILS >    PETMAX    PETMIN
+*** x -  x   (deg F)   (deg F)
+    1            40.       35.
+  END IWAT-PARM3
+
+  IWAT-STATE1
+*** <ILS >  IWATER state variables (inches)
+*** x -  x      RETS      SURS
+    1           0.01      0.01
+  END IWAT-STATE1
+
+END IMPLND
+
+RCHRES
+  ACTIVITY
+*** RCHRES  Active sections
+*** x -  x HYFG ADFG CNFG HTFG SDFG GQFG OXFG NUFG PKFG PHFG
+    1         1    0    0    0    0    0    0    0    0    0
+  END ACTIVITY
+
+  PRINT-INFO
+*** RCHRES  Printout level flags
+*** x -  x HYDR ADCA CONS HEAT  SED  GQL OXRX NUTR PLNK PHCB PIVL  PYR
+    1         3    4    4    4    4    4    4    4    4    4    1    9
+  END PRINT-INFO
+
+  BINARY-INFO
+*** RCHRES  Binary Output level flags
+*** x -  x HYDR ADCA CONS HEAT  SED  GQL OXRX NUTR PLNK PHCB PIVL  PYR
+    1         2    4    4    4    4    4    4    4    4    4    1    9
+  END BINARY-INFO
+
+  GEN-INFO
+***              Name        Nexits   Unit Systems   Printer      BinaryOut
+*** RCHRES                               t-series  Engl Metr LKFG Engl Metr
+*** x -  x                                 in  out
+    1     Demo Reach              1         1    1    0   26    0   27    0
+  END GEN-INFO
+
+  HYDR-PARM1
+***         Flags for HYDR section
+***RC HRES  VC A1 A2 A3  ODFVFG for each *** ODGTFG for each     FUNCT  for each
+*** x  - x  FG FG FG FG  possible   exit *** possible   exit     possible   exit
+    1        0  1  1  1    4  0  0  0  0       0  0  0  0  0       1  1  1  1  1
+  END HYDR-PARM1
+
+  HYDR-PARM2
+*** RCHRES      FTBU       LEN     DELTH     STCOR        KS      DB50
+*** x -  x             (miles)      (ft)      (ft)                (in)
+    1              1      0.10        10         0       0.5      0.01
+  END HYDR-PARM2
+
+  HYDR-INIT
+***         Initial conditions for HYDR section
+***RC HRES       VOL  CAT Initial value  of COLIND     initial  value  of OUTDGT
+*** x  - x     ac-ft      for each possible   exit  for each possible exit,ft3
+    1           20.0
+  END HYDR-INIT
+
+END RCHRES
+
+FTABLES
+  FTABLE      1
+ rows cols                               ***
+    2    4
+     depth      area    volume  outflow1 ***
+       0.0       0.0         0         0
+       1.0      10.0      20.0     1000.
+  END FTABLE  1
+
+END FTABLES
+
+EXT SOURCES
+<-Volume-> <Member> SsysSgap<--Mult-->Tran <-Target vols> <-Grp> <-Member-> ***
+<Name>   x <Name> x tem strg<-factor->strg <Name>   x   x        <Name> x x ***
+WDM1     1 PREC     ENGLZERO               IMPLND   1     EXTNL  PREC  
+WDM1     2 HPET     ENGL                   IMPLND   1     EXTNL  PETINP
+WDM1     1 PREC     ENGLZERO               RCHRES   1     EXTNL  PREC  
+WDM1     2 HPET     ENGL                   RCHRES   1     EXTNL  POTEV 
+END EXT SOURCES
+
+EXT TARGETS
+<-Volume-> <-Grp> <-Member-><--Mult-->Tran <-Volume-> <Member> Tsys Aggr Amd ***
+<Name>   x        <Name> x x<-factor->strg <Name>   x <Name>qf  tem strg strg***
+IMPLND   1 IWATER SURO   1 1               WDM1  9000 ISURO  1 METR      REPL
+END EXT TARGETS
+
+
+SCHEMATIC
+<-Volume->                  <--Area-->     <-Volume->  <ML#> ***       <sb>
+<Name>   x                  <-factor->     <Name>   x        ***        x x
+IMPLND   1                          10     RCHRES   1      1
+IMPLND   2                          30     RCHRES   1      1
+IMPLND   1                           5     RCHRES   2      1
+END SCHEMATIC
+
+
+  MASS-LINK        1
+<-Volume-> <-Grp> <-Member-><--Mult-->     <-Target vols> <-Grp> <-Member->  ***
+<Name>            <Name> x x<-factor->     <Name>                <Name> x x  ***
+IMPLND     IWATER SURO       0.0833333     RCHRES         INFLOW IVOL    
+  END MASS-LINK    1
+
+END RUN
