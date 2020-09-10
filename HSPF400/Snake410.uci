@@ -9,11 +9,11 @@ END GLOBAL
 
 FILES
 <FILE>  <UN#>***<----FILE NAME------------------------------------------------->
-MESSU      24   Snake_330.ech
-           91   Snake_330.out
-WDM1       25   Snake_330.wdm
+MESSU      24   Snake410.ech
+           91   Snake410.out
+WDM1       25   Snake410.wdm
 WDM2       26   ..\nldas_met.wdm
-BINO       92   Snake_330.hbn
+BINO       92   Snake410.hbn
 END FILES
 
 OPN SEQUENCE
@@ -116,6 +116,7 @@ OPN SEQUENCE
       RCHRES      52
       RCHRES      53
       RCHRES      54
+      COPY         1
     END INGRP
 END OPN SEQUENCE
 
@@ -1439,7 +1440,7 @@ FTABLES
       0.48      0.26      0.05      0.86
       0.58      0.27      0.08      1.61
       9.93      1.44       8.1   1148.55
-     19.28      2.61     27.04   5749.43
+     19.28     20.61    270.04  55749.43
   END FTABLE 49
 
   FTABLE     50
@@ -1513,101 +1514,110 @@ FTABLES
   END FTABLE 54
 END FTABLES
 
+COPY
+  TIMESERIES
+  Copy-opn***
+*** x -  x  NPT  NMN
+    1         0    8
+  END TIMESERIES
+
+END COPY
+
 EXT SOURCES
 <-Volume-> <Member> SsysSgap<--Mult-->Tran <-Target vols> <-Grp> <-Member-> ***
 <Name>   x <Name> x tem strg<-factor->strg <Name>   x   x        <Name> x x ***
 *** Met Seg X254Y171
 WDM2    91 PREC     ENGLZERO          SAME PERLND 101 108 EXTNL  PREC  
 WDM2    93 ATEM     ENGL              SAME PERLND 101 108 EXTNL  GATMP 
-WDM2    96 PEVT     ENGL              SAME PERLND 101 108 EXTNL  PETINP
+WDM2    96 PEVT     ENGL       0.6    SAME PERLND 101 108 EXTNL  PETINP
 *** Met Seg X255Y171
 WDM2   141 PREC     ENGLZERO          SAME PERLND 201 208 EXTNL  PREC  
 WDM2   143 ATEM     ENGL              SAME PERLND 201 208 EXTNL  GATMP 
-WDM2   146 PEVT     ENGL              SAME PERLND 201 208 EXTNL  PETINP
+WDM2   146 PEVT     ENGL       0.6    SAME PERLND 201 208 EXTNL  PETINP
 *** Met Seg X254Y170
 WDM2    81 PREC     ENGLZERO          SAME PERLND 401 408 EXTNL  PREC  
 WDM2    83 ATEM     ENGL              SAME PERLND 401 408 EXTNL  GATMP 
-WDM2    86 PEVT     ENGL              SAME PERLND 401 408 EXTNL  PETINP
+WDM2    86 PEVT     ENGL       0.6    SAME PERLND 401 408 EXTNL  PETINP
 *** Met Seg X255Y170
 WDM2   131 PREC     ENGLZERO          SAME PERLND 301 308 EXTNL  PREC  
 WDM2   133 ATEM     ENGL              SAME PERLND 301 308 EXTNL  GATMP 
-WDM2   136 PEVT     ENGL              SAME PERLND 301 308 EXTNL  PETINP
+WDM2   136 PEVT     ENGL       0.6    SAME PERLND 301 308 EXTNL  PETINP
 *** Met Seg X254Y169
 WDM2    71 PREC     ENGLZERO          SAME PERLND 501 508 EXTNL  PREC  
 WDM2    73 ATEM     ENGL              SAME PERLND 501 508 EXTNL  GATMP 
-WDM2    76 PEVT     ENGL              SAME PERLND 501 508 EXTNL  PETINP
+WDM2    76 PEVT     ENGL       0.6    SAME PERLND 501 508 EXTNL  PETINP
 *** Met Seg X254Y171
 WDM2    91 PREC     ENGLZERO          SAME IMPLND 102     EXTNL  PREC  
 WDM2    93 ATEM     ENGL              SAME IMPLND 102     EXTNL  GATMP 
-WDM2    96 PEVT     ENGL              SAME IMPLND 102     EXTNL  PETINP
+WDM2    96 PEVT     ENGL       0.6    SAME IMPLND 102     EXTNL  PETINP
 *** Met Seg X255Y171
 WDM2   141 PREC     ENGLZERO          SAME IMPLND 202     EXTNL  PREC  
 WDM2   143 ATEM     ENGL              SAME IMPLND 202     EXTNL  GATMP 
-WDM2   146 PEVT     ENGL              SAME IMPLND 202     EXTNL  PETINP
+WDM2   146 PEVT     ENGL       0.6    SAME IMPLND 202     EXTNL  PETINP
 *** Met Seg X254Y170
 WDM2    81 PREC     ENGLZERO          SAME IMPLND 402     EXTNL  PREC  
 WDM2    83 ATEM     ENGL              SAME IMPLND 402     EXTNL  GATMP 
-WDM2    86 PEVT     ENGL              SAME IMPLND 402     EXTNL  PETINP
+WDM2    86 PEVT     ENGL       0.6    SAME IMPLND 402     EXTNL  PETINP
 *** Met Seg X255Y170
 WDM2   131 PREC     ENGLZERO          SAME IMPLND 302     EXTNL  PREC  
 WDM2   133 ATEM     ENGL              SAME IMPLND 302     EXTNL  GATMP 
-WDM2   136 PEVT     ENGL              SAME IMPLND 302     EXTNL  PETINP
+WDM2   136 PEVT     ENGL       0.6    SAME IMPLND 302     EXTNL  PETINP
 *** Met Seg X254Y169
 WDM2    71 PREC     ENGLZERO          SAME IMPLND 502     EXTNL  PREC  
 WDM2    73 ATEM     ENGL              SAME IMPLND 502     EXTNL  GATMP 
-WDM2    76 PEVT     ENGL              SAME IMPLND 502     EXTNL  PETINP
+WDM2    76 PEVT     ENGL       0.6    SAME IMPLND 502     EXTNL  PETINP
 *** Met Seg X254Y171
 WDM2    91 PREC     ENGLZERO          SAME RCHRES   1     EXTNL  PREC  
 WDM2    93 ATEM     ENGL              SAME RCHRES   1     EXTNL  GATMP 
-WDM2    96 PEVT     ENGL              SAME RCHRES   1     EXTNL  POTEV 
+WDM2    96 PEVT     ENGL       0.6    SAME RCHRES   1     EXTNL  POTEV 
 *** Met Seg X254Y171
 WDM2    91 PREC     ENGLZERO          SAME RCHRES   3     EXTNL  PREC  
 WDM2    93 ATEM     ENGL              SAME RCHRES   3     EXTNL  GATMP 
-WDM2    96 PEVT     ENGL              SAME RCHRES   3     EXTNL  POTEV 
+WDM2    96 PEVT     ENGL       0.6    SAME RCHRES   3     EXTNL  POTEV 
 *** Met Seg X255Y171
 WDM2   141 PREC     ENGLZERO          SAME RCHRES   2     EXTNL  PREC  
 WDM2   143 ATEM     ENGL              SAME RCHRES   2     EXTNL  GATMP 
-WDM2   146 PEVT     ENGL              SAME RCHRES   2     EXTNL  POTEV 
+WDM2   146 PEVT     ENGL       0.6    SAME RCHRES   2     EXTNL  POTEV 
 *** Met Seg X255Y171
 WDM2   141 PREC     ENGLZERO          SAME RCHRES  30     EXTNL  PREC  
 WDM2   143 ATEM     ENGL              SAME RCHRES  30     EXTNL  GATMP 
-WDM2   146 PEVT     ENGL              SAME RCHRES  30     EXTNL  POTEV 
+WDM2   146 PEVT     ENGL       0.6    SAME RCHRES  30     EXTNL  POTEV 
 *** Met Seg X254Y170
 WDM2    81 PREC     ENGLZERO          SAME RCHRES   4     EXTNL  PREC  
 WDM2    83 ATEM     ENGL              SAME RCHRES   4     EXTNL  GATMP 
-WDM2    86 PEVT     ENGL              SAME RCHRES   4     EXTNL  POTEV 
+WDM2    86 PEVT     ENGL       0.6    SAME RCHRES   4     EXTNL  POTEV 
 *** Met Seg X254Y170
 WDM2    81 PREC     ENGLZERO          SAME RCHRES   7   8 EXTNL  PREC  
 WDM2    83 ATEM     ENGL              SAME RCHRES   7   8 EXTNL  GATMP 
-WDM2    86 PEVT     ENGL              SAME RCHRES   7   8 EXTNL  POTEV 
+WDM2    86 PEVT     ENGL       0.6    SAME RCHRES   7   8 EXTNL  POTEV 
 *** Met Seg X254Y170
 WDM2    81 PREC     ENGLZERO          SAME RCHRES  36     EXTNL  PREC  
 WDM2    83 ATEM     ENGL              SAME RCHRES  36     EXTNL  GATMP 
-WDM2    86 PEVT     ENGL              SAME RCHRES  36     EXTNL  POTEV 
+WDM2    86 PEVT     ENGL       0.6    SAME RCHRES  36     EXTNL  POTEV 
 *** Met Seg X255Y170
 WDM2   131 PREC     ENGLZERO          SAME RCHRES   5   6 EXTNL  PREC  
 WDM2   133 ATEM     ENGL              SAME RCHRES   5   6 EXTNL  GATMP 
-WDM2   136 PEVT     ENGL              SAME RCHRES   5   6 EXTNL  POTEV 
+WDM2   136 PEVT     ENGL       0.6    SAME RCHRES   5   6 EXTNL  POTEV 
 *** Met Seg X255Y170
 WDM2   131 PREC     ENGLZERO          SAME RCHRES  42     EXTNL  PREC  
 WDM2   133 ATEM     ENGL              SAME RCHRES  42     EXTNL  GATMP 
-WDM2   136 PEVT     ENGL              SAME RCHRES  42     EXTNL  POTEV 
+WDM2   136 PEVT     ENGL       0.6    SAME RCHRES  42     EXTNL  POTEV 
 *** Met Seg X254Y169
 WDM2    71 PREC     ENGLZERO          SAME RCHRES   9  29 EXTNL  PREC  
 WDM2    73 ATEM     ENGL              SAME RCHRES   9  29 EXTNL  GATMP 
-WDM2    76 PEVT     ENGL              SAME RCHRES   9  29 EXTNL  POTEV 
+WDM2    76 PEVT     ENGL       0.6    SAME RCHRES   9  29 EXTNL  POTEV 
 *** Met Seg X254Y169
 WDM2    71 PREC     ENGLZERO          SAME RCHRES  31  35 EXTNL  PREC  
 WDM2    73 ATEM     ENGL              SAME RCHRES  31  35 EXTNL  GATMP 
-WDM2    76 PEVT     ENGL              SAME RCHRES  31  35 EXTNL  POTEV 
+WDM2    76 PEVT     ENGL       0.6    SAME RCHRES  31  35 EXTNL  POTEV 
 *** Met Seg X254Y169
 WDM2    71 PREC     ENGLZERO          SAME RCHRES  37  41 EXTNL  PREC  
 WDM2    73 ATEM     ENGL              SAME RCHRES  37  41 EXTNL  GATMP 
-WDM2    76 PEVT     ENGL              SAME RCHRES  37  41 EXTNL  POTEV 
+WDM2    76 PEVT     ENGL       0.6    SAME RCHRES  37  41 EXTNL  POTEV 
 *** Met Seg X254Y169
 WDM2    71 PREC     ENGLZERO          SAME RCHRES  43  54 EXTNL  PREC  
 WDM2    73 ATEM     ENGL              SAME RCHRES  43  54 EXTNL  GATMP 
-WDM2    76 PEVT     ENGL              SAME RCHRES  43  54 EXTNL  POTEV 
+WDM2    76 PEVT     ENGL       0.6    SAME RCHRES  43  54 EXTNL  POTEV 
 END EXT SOURCES
 
 SCHEMATIC
@@ -2114,12 +2124,66 @@ PERLND 507                         3.7     RCHRES  54      2
 PERLND 508                        47.6     RCHRES  54      2
 RCHRES  24                                 RCHRES  54      3
 RCHRES  53                                 RCHRES  54      3
+PERLND 501                        33.3     COPY     1     90
+PERLND 502                      9364.8     COPY     1     90
+IMPLND 502                      9364.8     COPY     1     91
+PERLND 504                    152023.6     COPY     1     90
+PERLND 505                       932.5     COPY     1     90
+PERLND 506                     53165.9     COPY     1     90
+PERLND 507                      1581.8     COPY     1     90
+PERLND 508                       93625     COPY     1     90
+PERLND 501                    131734.7     COPY     1     90
+PERLND 503                       466.2     COPY     1     90
+PERLND 301                     14037.7     COPY     1     90
+PERLND 302                       241.4     COPY     1     90
+IMPLND 302                       241.4     COPY     1     91
+PERLND 304                     19165.9     COPY     1     90
+PERLND 305                       126.4     COPY     1     90
+PERLND 307                       108.5     COPY     1     90
+PERLND 308                      1735.3     COPY     1     90
+PERLND 401                     26056.3     COPY     1     90
+PERLND 402                       473.6     COPY     1     90
+IMPLND 402                       473.6     COPY     1     91
+PERLND 403                        19.9     COPY     1     90
+PERLND 404                     21602.1     COPY     1     90
+PERLND 405                       252.6     COPY     1     90
+PERLND 406                        44.3     COPY     1     90
+PERLND 407                        41.1     COPY     1     90
+PERLND 408                      3350.1     COPY     1     90
+PERLND 306                         0.2     COPY     1     90
+PERLND 101                     15166.9     COPY     1     90
+PERLND 102                       131.2     COPY     1     90
+IMPLND 102                       131.2     COPY     1     91
+PERLND 104                      8583.9     COPY     1     90
+PERLND 105                       269.4     COPY     1     90
+PERLND 106                          36     COPY     1     90
+PERLND 107                        56.9     COPY     1     90
+PERLND 108                       802.8     COPY     1     90
+PERLND 201                     20232.2     COPY     1     90
+PERLND 202                       290.2     COPY     1     90
+IMPLND 202                       290.2     COPY     1     91
+PERLND 204                     13349.9     COPY     1     90
+PERLND 205                         155     COPY     1     90
+PERLND 206                        70.7     COPY     1     90
+PERLND 207                       129.7     COPY     1     90
+PERLND 208                      1959.8     COPY     1     90
+PERLND 103                         7.7     COPY     1     90
+PERLND 203                         4.7     COPY     1     90
 END SCHEMATIC
 
 EXT TARGETS
 <-Volume-> <-Grp> <-Member-><--Mult-->Tran <-Volume-> <Member> Tsys Aggr Amd ***
 <Name>   x        <Name> x x<-factor->strg <Name>   x <Name>qf  tem strg strg***
 RCHRES  54 HYDR   RO     1 1          AVER WDM1   103 FLOW   1 ENGL AGGR REPL
+RCHRES  54 ROFLOW ROVOL  1 1 1.9936e-5     WDM1   541 SIMQ   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   1 1 1.6613e-6     WDM1   542 SURO   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   2 1 1.6613e-6     WDM1   543 IFWO   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   3 1 1.6613e-6     WDM1   544 AGWO   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   4 1 1.6613e-6     WDM1   545 PETX   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   5 1 1.6613e-6     WDM1   546 SAET   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   6 1 1.6613e-6AVER WDM1   547 UZSX   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   7 1 1.6613e-6AVER WDM1   548 LZSX   1 ENGL AGGR REPL
+COPY     1 OUTPUT MEAN   8 1 1.6613e-6     WDM1   549 SUPY   1 ENGL AGGR REPL
 END EXT TARGETS
 
 MASS-LINK
@@ -2157,6 +2221,28 @@ IMPLND     SOLIDS SOSLD  1         0.4     RCHRES         INFLOW ISED   3
 <Name>            <Name> x x<-factor->     <Name>                <Name> x x  ***
 RCHRES     ROFLOW                          RCHRES         INFLOW         
   END MASS-LINK    3
+
+  MASS-LINK       90
+<-Volume-> <-Grp> <-Member-><--Mult-->     <-Target vols> <-Grp> <-Member->  ***
+<Name>            <Name> x x<-factor->     <Name>                <Name> x x  ***
+PERLND     PWATER LZS                      COPY           INPUT  MEAN   7
+PERLND     PWATER AGWO                     COPY           INPUT  MEAN   3
+PERLND     PWATER PET                      COPY           INPUT  MEAN   4
+PERLND     PWATER IFWO                     COPY           INPUT  MEAN   2
+PERLND     PWATER UZS                      COPY           INPUT  MEAN   6
+PERLND     PWATER SURO                     COPY           INPUT  MEAN   1
+PERLND     PWATER SUPY                     COPY           INPUT  MEAN   8
+PERLND     PWATER TAET                     COPY           INPUT  MEAN   5
+  END MASS-LINK   90
+
+  MASS-LINK       91
+<-Volume-> <-Grp> <-Member-><--Mult-->     <-Target vols> <-Grp> <-Member->  ***
+<Name>            <Name> x x<-factor->     <Name>                <Name> x x  ***
+IMPLND     IWATER PET                      COPY           INPUT  MEAN   4
+IMPLND     IWATER SUPY                     COPY           INPUT  MEAN   8
+IMPLND     IWATER SURO                     COPY           INPUT  MEAN   1
+IMPLND     IWATER IMPEV                    COPY           INPUT  MEAN   5
+  END MASS-LINK   91
 END MASS-LINK
 
 END RUN

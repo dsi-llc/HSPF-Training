@@ -9,3 +9,5 @@ HSPF_Test.units.dbf
 *.dbf
 Presentation/
 HSPF400/Reports*
+HSPF500/Reports*
+*LogFile.txt
